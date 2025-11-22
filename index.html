@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Diddy Blud Meme Site 3.0</title>
+<style>
+  body{
+    margin:0; font-family:'Poppins', sans-serif; background:#f0f7ff;
+    overflow-x:hidden;
+    animation:bgshift 8s infinite alternate;
+  }
+  @keyframes bgshift{
+    0%{background:#f0f7ff;} 50%{background:#fff3f7;} 100%{background:#f5fff3;}
+  }
+  .container{ text-align:center; padding:40px; }
+  h1{
+    font-size:48px; font-weight:900; color:#333;
+    animation:titlePop 1.5s ease-in-out infinite;
+  }
+  @keyframes titlePop{0%,100%{transform:scale(1);} 50%{transform:scale(1.06);} }
+
+  /* Wiggly funny subtitle */
+  .subtitle{
+    font-size:20px; margin-top:10px; font-weight:600;
+    animation:wiggle 1.2s infinite;
+  }
+  @keyframes wiggle{
+    0%,100%{transform:rotate(0);} 25%{transform:rotate(2deg);} 75%{transform:rotate(-2deg);} }
+
+  /* Image card */
+  .card{
+    width:90%; max-width:400px; margin:30px auto;
+    background:#fff; border-radius:20px; padding:20px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.12);
+    position:relative;
+    animation:float 4s ease-in-out infinite;
+  }
+  @keyframes float{
+    0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
+
+  img{
+    width:100%; border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    transition:0.3s;
+  }
+  img:hover{
+    transform:rotate(3deg) scale(1.06);
+  }
+
+  /* 67 BADGE */
+  .badge{
+    position:absolute; top:-20px; right:-20px;
+    width:90px; height:90px; border-radius:50%;
+    background:linear-gradient(135deg,#ffed4a,#ff6b6b);
+    color:#222; font-weight:900; font-size:32px;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    animation:spin 4s linear infinite;
+  }
+  @keyframes spin{ 100%{transform:rotate(360deg);} }
+
+  /* Speech bubble */
+  .bubble{
+    margin-top:15px; display:inline-block;
+    background:white; padding:12px 20px; border-radius:15px;
+    font-weight:700; font-size:18px;
+    animation:bounce 2s infinite;
+  }
+  @keyframes bounce{
+    0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+
+  /* Emoji rain */
+  .emoji{
+    position:fixed; top:-50px; font-size:32px;
+    animation:fall 4s linear forwards;
+    pointer-events:none;
+  }
+  @keyframes fall{
+    to{ transform:translateY(120vh) rotate(360deg); opacity:0; }
+  }
+
+  /* Button */
+  .btn{
+    margin-top:20px; padding:12px 20px;
+    background:#6c63ff; color:#fff; border:none; border-radius:10px;
+    font-size:18px; font-weight:700;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(108,99,255,0.4);
+    transition:0.2s;
+  }
+  .btn:hover{ transform:scale(1.08); }
+
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>what is this diddy blud doing 💀</h1>
+  <div class="subtitle">bro thinks he's the sigma rizzler overlord 😭</div>
+
+  <div class="card">
+    <div class="badge">67</div>
+    <img id="friendImg" src="https://scontent.fktm21-1.fna.fbcdn.net/v/t39.30808-6/503683609_1225424672550980_707784796280768873_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=yarCdYjFRewQ7kNvwGPrfQt&_nc_oc=AdmLm6Lf4s8kqk979ZpLdqfWt8Y2gxb7UFd8Xz0FoBTbLhDdIdniYp5CTj874spGE-6IuKWVEnwwW6s8OeDF1N45&_nc_zt=23&_nc_ht=scontent.fktm21-1.fna&_nc_gid=nXzD-AzYLbwyVUPSA6Ks3Q&oh=00_AfjAozyjm4_XSUPgqu-FMDFFSY5KNhZaizK6PXosucMzog&oe=6927B9B7" />
+  </div>
+
+  <div class="bubble" id="bubbleText">"bro thinks he discovered gravity"</div>
+
+  <button class="btn" id="funButton">Make it funnier 😭🔥</button>
+</div>
+
+<script>
+// Random emoji rain
+function dropEmoji(){
+  const emojis = ["😂","🔥","💀","😨","🗿","🤡","😭","🤸","🦍","🌀"];
+  const e = document.createElement("div");
+  e.className="emoji";
+  e.style.left = Math.random()*100 + "vw";
+  e.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(),4000);
+}
+
+// Random bubble texts
+const lines = [
+  "bro acting like NPC #67 😭",
+  "diddy blud thinks he's John Wick",
+  "camera caught him lacking again 💀",
+  "bro thinks he's the main quest giver",
+  "this is peak Ohio behaviour"
+];
+
+// Button action
+document.getElementById("funButton").onclick = () =>{
+  for(let i=0;i<10;i++) setTimeout(dropEmoji, i*150);
+  document.getElementById("bubbleText").innerText = lines[Math.floor(Math.random()*lines.length)];
+};
+</script>
+</body>
+</html>
